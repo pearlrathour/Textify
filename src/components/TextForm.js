@@ -29,14 +29,14 @@ export default function TextForm(props) {
 
     const handleCopy = (event) => {
         // console.log("Copy");
-        var text=document.getElementById("myBox")
+        var text = document.getElementById("myBox")
         text.select();
         navigator.clipboard.writeText(text.value);
     }
 
     const handleExtraSpaces = () => {
         // console.log("Copy");
-        let newText=text.split(/[ ]+/);
+        let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
     }
 
@@ -46,35 +46,38 @@ export default function TextForm(props) {
     //text="new text";     //wrong way to change set
     //setText("new text"); //correct way to change state
     return (
-        <>
-            <div className='container'>
+        <div>
+            <div className='container' style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
+                    {/* 1st{} for js 2nd{} for object */}
+                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? 'grey' : 'white', color: props.mode === 'light' ? 'black' : 'white' }} id="myBox" rows="10"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>
+                <button className="btn btn-outline-info mx-2 my-1" onClick={handleUpClick}>
                     Convert to Uppercase
                 </button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>
+                <button className="btn btn-outline-info mx-2 my-1" onClick={handleLoClick}>
                     Convert to Lowerscase
                 </button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleClearClick}>
-                    Clear Text
-                </button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>
+                <button className="btn btn-outline-info mx-2 my-1" onClick={handleExtraSpaces}>
                     Remove Extra Spaces
                 </button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleCopy}>
+                <button className="btn btn-outline-info mx-2 my-1" onClick={handleCopy}>
                     Copy Text
                 </button>
             </div>
-            <div className="container my-3">
-                <h2>Your text summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} Minutes read</p>
-                <h2>Preview</h2>
-                <p></p>
+            <div className="container">
+                <button className="btn btn-outline-info mx-2 my-1" onClick={handleClearClick}>
+                    Clear Text
+                </button>
             </div>
-        </>
+            <div className="container my-3" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
+            <h2>Your text summary</h2>
+            <p>{text.split(" ").length} words & {text.length} characters</p>
+            <p>{0.008 * text.split(" ").length} minutes read</p>
+            <h2>Preview</h2>
+            <p>{text.length > 0 ? text : "Enter something in the textbox above to preview in here."}</p>
+        </div>
+        </div >
     )
 }
