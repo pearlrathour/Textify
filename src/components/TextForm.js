@@ -12,7 +12,13 @@ export default function TextForm(props) {
 
     const handleLoClick = () => {
         // console.log("Uppercase was clicked"+text);
-        let newText = text.toLowerCaseCase();
+        let newText = text.toLowerCase();
+        setText(newText)
+    }
+
+    const handleClearClick = () => {
+        // console.log("Uppercase was clicked"+text);
+        let newText = "";
         setText(newText)
     }
 
@@ -20,6 +26,20 @@ export default function TextForm(props) {
         // console.log("On change");
         setText(event.target.value);
     }
+
+    const handleCopy = (event) => {
+        // console.log("Copy");
+        var text=document.getElementById("myBox")
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const handleExtraSpaces = () => {
+        // console.log("Copy");
+        let newText=text.split(/[ ]+/);
+        setText(newText.join(" "))
+    }
+
 
     //update without reloading
     const [text, setText] = useState("");
@@ -32,11 +52,20 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+                <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>
                     Convert to Uppercase
                 </button>
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+                <button className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>
                     Convert to Lowerscase
+                </button>
+                <button className="btn btn-primary mx-2 my-1" onClick={handleClearClick}>
+                    Clear Text
+                </button>
+                <button className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>
+                    Remove Extra Spaces
+                </button>
+                <button className="btn btn-primary mx-2 my-1" onClick={handleCopy}>
+                    Copy Text
                 </button>
             </div>
             <div className="container my-3">
@@ -44,11 +73,7 @@ export default function TextForm(props) {
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes read</p>
                 <h2>Preview</h2>
-                <p>The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.
-
-                    Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.
-
-                    HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects such as interactive forms may be embedded into the rendered page. HTML provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes and other items. HTML elements are delineated by tags, written using angle brackets.</p>
+                <p></p>
             </div>
         </>
     )
