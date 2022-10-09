@@ -9,7 +9,7 @@ function App() {
   const[mode, setMode]=useState('light');
   //whether dark mode enabled or not
 
-  const[alert, setAlert]=useState(null)
+  const[alert, setAlert]=useState(null);
   const showAlert=(message, type)=>{
     setAlert({
       msg : message,
@@ -21,12 +21,12 @@ function App() {
     if(mode==='light'){
       setMode('dark');
       document.body.style.backgroundColor='#15202B';
-      showAlert("Dark Mode has been enabled","success")
+      showAlert("Dark mode has been enabled","success");
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
-      showAlert("Light Mode has been enabled","success")
+      showAlert("Light mode has been enabled","success");
     }
   }
   return (
@@ -34,8 +34,8 @@ function App() {
     <Navbar title="Texutils" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
     <div className="container my-3">
-      <TextForm heading="Enter the text to analyze" mode={mode}/>
-      {/* <About mode={mode}/> */}
+      <TextForm  heading="Enter the text to analyze" mode={mode}/>
+      <About mode={mode}/>
     </div>
     </>
   );
