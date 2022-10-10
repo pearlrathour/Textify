@@ -1,35 +1,40 @@
 import React, { useState } from 'react'
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
+export default function About(props) {
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
 
-    const [btntext, setBtnText] = useState("Enable Dark Mode")
-
-    const toggleStyle = () => {
-        if (myStyle.color === 'black') {
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-            })
-            setBtnText("Enable Light Mode")
-        }
-        else {
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
+    let myStyle={
+        color: props.mode ==='dark'? 'white': '#15202B' ,
+        backgroundColor: props.mode === 'dark'? '#15202B':'white',
     }
+
+    // const [btntext, setBtnText] = useState("Enable Dark Mode")
+
+    // const toggleStyle = () => {
+    //     if (myStyle.color === 'black') {
+    //         setMyStyle({
+    //             color: 'white',
+    //             backgroundColor: 'black',
+    //         })
+    //         setBtnText("Enable Light Mode")
+    //     }
+    //     else {
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white'
+    //         })
+    //         setBtnText("Enable Dark Mode")
+    //     }
+    // }
 
 
     return (
         <>
             <div className="container">
-                <div class="accordion accordion-flush" id="accordionFlushExample" style={myStyle}>
+                <div class="accordion accordion-flush" id="accordionFlushExample" style={{color: props.mode ==='dark'?'white':'#042743'}}>
                     <h2 className='my-4'>About Us</h2>
                     <div class="accordion-item" style={myStyle}>
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -66,11 +71,11 @@ export default function About() {
                             TextUtils is a free character counter tool that provides instant character count & word count statistics for a given text. TextUtils reports the number of words and characters. Thus it is suitable for writing text with word/ character limit.
                         </div>
                     </div>
-                    <div className="container my-2">
+                    {/* <div className="container my-2">
                         <button onClick={toggleStyle} type="button" className="btn btn-outline-info">
                             {btntext}
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
