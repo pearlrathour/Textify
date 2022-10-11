@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/https://github.com/pearlrathour/Textutils/static/css/main.2784506f.css",
+    "main.js": "/https://github.com/pearlrathour/Textutils/static/js/main.f19a8f04.js",
+    "static/js/787.2a161d94.chunk.js": "/https://github.com/pearlrathour/Textutils/static/js/787.2a161d94.chunk.js",
+    "index.html": "/https://github.com/pearlrathour/Textutils/index.html",
+    "main.2784506f.css.map": "/https://github.com/pearlrathour/Textutils/static/css/main.2784506f.css.map",
+    "main.f19a8f04.js.map": "/https://github.com/pearlrathour/Textutils/static/js/main.f19a8f04.js.map",
+    "787.2a161d94.chunk.js.map": "/https://github.com/pearlrathour/Textutils/static/js/787.2a161d94.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2784506f.css",
+    "static/js/main.f19a8f04.js"
+  ]
+}
