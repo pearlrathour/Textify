@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       <div className="container my-3">
-      <Navbar title="Texutils" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="Textify" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} cancelAlert={cancelAlert} />
       <TextForm heading="Enter the text to analyze" mode={mode} />
       {/* <Router>
